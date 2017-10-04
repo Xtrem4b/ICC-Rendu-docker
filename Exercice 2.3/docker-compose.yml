@@ -1,0 +1,20 @@
+version: '2'
+services:
+  wordpress:
+    image: wordpress
+    ports:
+      - "8080:8080"
+    links:
+      - db:mysql
+    environment:
+      WORDPRESS_DB_PASSWORD: example
+      WORDPRESS_DB_HOST: db
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_USER: db
+      MYSQL_ROOT_PASSWORD: example
+networks:
+  default:
+    external:
+      name: subNet
