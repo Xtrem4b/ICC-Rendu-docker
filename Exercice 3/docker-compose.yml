@@ -11,13 +11,13 @@ services:
         ports:
             - "80:80"
         volumes:
-            - ~/www:/var/www/html
+            - ./www:/var/www/html
         links:
             - db:db
     db:
         image: mysql:latest
         volumes:
-            - ~/mysql:/var/lib/mysql
+            - ./mysql:/var/lib/mysql
         ports:
             - "3306:3306"
         environment:
